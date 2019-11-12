@@ -13,7 +13,7 @@ class TodosController < ApplicationController
     end 
 
     def create
-        @todo = Todo.create(user_id: params[:user_id], list_id: params[:list_id])
+        @todo = Todo.create(todo_params)
 
         render json: @todo 
     end     
@@ -23,4 +23,11 @@ class TodosController < ApplicationController
 
         @todo.destroy
     end 
+
+    private
+
+    def todo_params
+        params.permit(:title, :description, :done, :user_id, :list_id)
+    end 
 end
+
