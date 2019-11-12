@@ -11,4 +11,6 @@ Todo.destroy_all
 
 User.create(username: "avictor", password_digest:  "avictor")
 List.create(name: "Daily")
-Todo.create(title: "Eat junk food", description: "Don't eat junk food", done: false, user_id: 1, list_id: 1)
+List.create(name: "Weekly")
+List.create(name: "Financial")
+List.create(name: "Mindfulness")
