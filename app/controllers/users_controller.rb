@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
 
     def index 
-        @users = User.all 
-
-        render json: @users, include: [:lists]
+        @users = User.includes(lists: [:todos])
+        
+        render json: UserSerializer.new(@users)
     end 
 
     def show 
-        @user = User.find(params[:id])
+        @user = User.includes(lists: [:todos]).find(params[:id])
 
-        render json: @user, include: [:lists]
+        render json: UserSerializer.new(@user)
     end 
  
     private
