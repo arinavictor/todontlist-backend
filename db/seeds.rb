@@ -10,7 +10,7 @@ List.destroy_all
 Todo.destroy_all 
 
 User.create(username: "avictor", password_digest:  "avictor")
-List.create(name: "Daily")
-List.create(name: "Weekly")
-List.create(name: "Financial")
-List.create(name: "Mindfulness")
+List.create(name: "Daily", user_id: 3)
+List.create(name: "Weekly", user_id: 3)
+List.create(name: "Financial", user_id: 3)
+List.create(name: "Mindfulness", user_id: 3)

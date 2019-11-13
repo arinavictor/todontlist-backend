@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_174728) do
 
   create_table "lists", force: :cascade do |t|
     t.string "name"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -25,7 +26,6 @@ ActiveRecord::Schema.define(version: 2019_11_12_174728) do
     t.string "title"
     t.string "description"
     t.boolean "done"
-    t.integer "user_id"
     t.integer "list_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

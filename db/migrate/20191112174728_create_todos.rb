@@ -5,7 +5,6 @@ class CreateTodos < ActiveRecord::Migration[6.0]
       t.string :description
       t.boolean :done
 
-      t.integer :user_id
       t.integer :list_id
 
       t.timestamps
