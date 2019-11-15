@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+    before_action :set_todo, only: [:show, :update, :destroy]
 
     def index
         @todos =Todo.all
@@ -19,15 +20,29 @@ class TodosController < ApplicationController
     end     
 
     def destroy
-        @todo = Todo.find_by(user_id: params[:user_id], list_id: params[:list_id])
+        # @todo = Todo.find(params[:id])
 
         @todo.destroy
     end 
 
+   
+    def update
+      if @todo.update(todo_params)
+        render json: @todo
+      else 
+        render json: @todo.errors, status: :unprocessable_entity
+      end 
+    end
+
+
     private
 
+    def set_todo
+        @todo = Todo.find(params[:id])
+    end 
+
     def todo_params
-        params.permit(:title, :description, :done, :user_id, :list_id)
+        params.require(:todo).permit(:title, :description, :done, :list_id)
     end 
 end
 
