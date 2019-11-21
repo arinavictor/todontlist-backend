@@ -7,7 +7,7 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'https://todontlist.firebaseapp.com/'
+    origins 'https://todontlist.firebaseapp.com'
 
     resource '*',
       headers: :any,
